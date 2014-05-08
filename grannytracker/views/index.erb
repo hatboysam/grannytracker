@@ -1,0 +1,58 @@
+<link rel="stylesheet" type="text/css" href="/css/foundation.min.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/custom.css"></link>
+
+<script>
+	setInterval(function() {
+		location.reload();
+	}, 1000);
+</script>
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1>GrannyTracker</h1>
+    <h3>BE 470 Final Project - Mace and Stern</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 small-6 columns">
+    <div class="bedroom">
+      <h4>Bedroom</h4>
+      Last Movement: <%= Place.last_in(1).time_ago %> minutes ago
+    </div>
+  </div>
+
+  <div class="large-6 small-6 columns">
+    <div class="bathroom">
+      <h4>Bathroom</h4>
+      Last Movement: <%= Place.last_in(2).time_ago %> minutes ago
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<% @places.each do |place| %>
+  <div class="row">
+    <div class="large-6 small-6 columns">
+      <% if place.room_id == 1 %>
+        <div class="bedroom">
+          <h4>Entered: <%= place.clock_time %></h4>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="large-6 small-6 columns">
+      <% if place.room_id == 2 %>
+        <div class="bathroom">
+          <h4>Entered: <%= place.clock_time %></h4>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<!-- <form action="/submit" method="POST">
+	<input type="text" name="model[name]" value="Enter Model Name" />
+	<input type="submit" value="Submit" class="button"/>
+</form> -->

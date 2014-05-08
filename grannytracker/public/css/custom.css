@@ -1,0 +1,20 @@
+body {
+  text-align: center;
+  background: #DBDBDB;
+}
+
+/**
+ * Purple
+ */
+.bedroom {
+  background: #A069D6;
+  border: 2px #552781 solid;
+}
+
+/**
+ * Yellow
+ */
+.bathroom {
+  background: #FFF773;
+  border: 2px #BFB730 solid;
+}
